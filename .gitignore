@@ -1,0 +1,54 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+build*/
+*.*~
+*.pdb
+*.ilk
+*.vso
+*.pso
+**/.vs
+*.swp
+**/Debug
+**/Release
+**/lib
+**/lib64
+**/.gradle
+.DS_Store
+
+config.h
+
+shader-error.txt
+**/.externalNativeBuild
+External/Windows/share/man/man3/zlib.3
+External/Windows/share/pkgconfig/zlib.pc
