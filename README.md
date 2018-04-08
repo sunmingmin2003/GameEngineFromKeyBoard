@@ -6,7 +6,7 @@
 
   目录,用于存放shader、贴图、模型、场景、动画、音频等游戏资源文件
 
-  -1.1. Shaders
+  - 1.1. Shaders
 
 - 2.External
 
@@ -60,15 +60,15 @@
 
 ## 文件类型说明
 
-`*.ps`
-`*.hs`
-`*.dds`: 一种图片格式，广泛应用于3D游戏贴图，它是DirectX纹理压缩(DirectX Texture Compression,简称DXTC)的产物，简称"贴图"。 
-`*.gxt`
-`*.gnf`
-`*.ppm`: (Portable PixMap)是portable像素图片，没有经过压缩，相对比较大，但是由于图片格式简单，一般做为图片处理的中间件。或者做为单间的图片格式保持。
-`*.tga`
-`*.raw`: 文件几乎未经处理而直接从CCD或CMOS上得到的信息。
-`*.tga`:
+- `*.ps`
+- `*.hs`
+- `*.dds`: 一种图片格式，广泛应用于3D游戏贴图，它是DirectX纹理压缩(DirectX Texture Compression,简称DXTC)的产物，简称"贴图"。
+- `*.gxt`
+- `*.gnf`
+- `*.ppm`: (Portable PixMap)是portable像素图片，没有经过压缩，相对比较大，但是由于图片格式简单，一般做为图片处理的中间件。或者做为单间的图片格式保持。
+- `*.tga`
+- `*.raw`: 文件几乎未经处理而直接从CCD或CMOS上得到的信息。
+- `*.tga`:
 
 ## 工具链
 
@@ -90,8 +90,9 @@
        向工程添加多个特定的头文件搜索路径,路径之间用空格分隔,如果路径包含空格,可以使用双引号将它括起来,默认的行为为追加到当前头文件搜索路径的后面。有如下两种方式可以控制搜索路径添加的位置
 
     - `target_include_directories(<target> [SYSTEM] [BEFORE] <INTERFACE|PUBLIC|PRIVATE> [items1...][<INTERFACE|PUBLIC|PRIVATE> [items2...] ...])` 
-    作用：编译给定目标文件时，指定要包含的文件（一般为头文件）以及目标文件所在目录路径。  参数  
-    1. target目标文件必须已经存在（由命令add_executable()或add_library()所创建)，并且不能被IMPORTED修饰.  
+    作用：编译给定目标文件时，指定要包含的文件（一般为头文件）以及目标文件所在目录路径。  
+    参数
+    1.target目标文件必须已经存在（由命令add_executable()或add_library()所创建)，并且不能被IMPORTED修饰.  
     2.若使用BEFORE，则它修饰的内容会被添加到属性前面。     
     3.关键字INTERFACE，PUBLIC和PRIVATE指定它后面参数的作用域。PRIVATE和PUBLIC项会填充targe目标文件的INCLUDE_DIRECTORIES属性。PUBLIC和INTERFACE项会填充target目标文件的INTERFACE_INCLUDE_DIRECTORIES属性。随后的参数指定包含目录。
     指定的包含目录可能是绝对路径也可能是相对路径。对同一个target目标文件的重复调用会按命令的调用顺序进行。如果指定标志为SYSTEM，则是告诉编译器在一些平台上该目录表示系统包含目录(表示这个设置可能取得效果比如跳过警告，或者这些固定的安装系统文件在依赖计算中不被考虑-参考编译文档)。如果SYSTEM和PUBLIC和INTERFACE同时使用，则目标文件属性INTERFACE_SYSTEM_INCLUDE_DIRECTORIES会被填充到指定目录。
@@ -101,7 +102,7 @@
     file(STRINGS myfile.txt myfile)， 将输入文件的每行内容存储在变量"myfile"中  
 
     - `cmake_policy`
-    
+
 - CMAKE-compile-features
 
 - CMAKE-developer
@@ -171,25 +172,16 @@
 - System & Compiler Information 
 - Various Option
 - Compilers and Tools
-    - `CMAKE_C_COMPILER`
+
+  - `CMAKE_C_COMPILER`
+
 - Prefixes,Suffixes(Postfixes),and Extensions
 - Variables not listed here
 - Logging code
 
-
 [CMakeCache.txt](https://blog.csdn.net/dbzhang800/article/details/6340102)
 
-  
-
-
-
-
-
-
-CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS  
-
-
-
+CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS
 
 ### CLANG-LLVM
 
@@ -207,15 +199,20 @@ CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS
 ### 命令行
 
 删除当前目录下所有文件：rm -rf *
-#### Windows 
-```
+
+#### Windows
+
+```bash
 cmake -G "NMake Makefiles" ../.. ;对应 nmake
+```
 
 #### Linux
-```
+
+``` bash
 cmake -G "Unix Makefiles" ../.. ;对应 make
 build/Release当中执行下面的命令:cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..\..
 build/Debug当中执行下面的命令:cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug ..\..
+```
 
-### LLVM-CLANG
+#### LLVM-CLANG
 cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=..\..\cmake\clang-cl.cmake ..\..
